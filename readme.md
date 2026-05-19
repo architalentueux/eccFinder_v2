@@ -1,4 +1,4 @@
-# ecc_finderV1.1
+# eccFinder_v2
 Tool for eccdna analysis using ONT only 
 ![Optional Text](../main/data/eccfinder_workflow2.png)
 ## I- Install Miniconda3 First
@@ -25,7 +25,7 @@ Tool for eccdna analysis using ONT only
 
    - git clone https://github.com/architalentueux/ecc_finderV1.1.git
 
-   - cd ecc_finderV1.1
+   - cd eccFinder_v2
 
 
 ### 1- create environmment
