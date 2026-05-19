@@ -19,11 +19,11 @@ Tool for eccdna analysis using ONT only
    - conda config --add channels conda-forge
    - conda config --set channel_priority strict
 
-## II- Process To launch Eccfinder on ont map-ont
+## II- Process To launch eccFinder_v2 on ont map-ont
 
 ### 0- download the tool
 
-   - git clone https://github.com/architalentueux/ecc_finderV1.1.git
+   - git clone https://github.com/architalentueux/eccFinder_v2.git
 
    - cd eccFinder_v2
 
