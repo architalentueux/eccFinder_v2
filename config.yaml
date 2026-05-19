@@ -1,0 +1,83 @@
+#-----------------------------Configuration for eccfinder You can MODIFY these parameters as you want :)-----------------------------------------
+args:
+ # this option it's for launch ont longreads analysis
+ - "map-ont"
+ # this option it's where you locate your fastqfiles
+ #- "./data/MtrunA17genome.ont.idx"
+
+ #- "/media/archimede/Transcend/ArchiTalent/all_acobiom/all_acobiom/V1.1_samples_acobiom/29505_b08.fastq"
+ #- "/media/archimede/Transcend/ArchiTalent/Lucas_samples/PAQ58404_barcode19_pass.fastq"
+ #- "/media/archimede/P2/ArchiTalent/BEECH/MOBILOME_DATA/data_abirami//unzipfile/194MR_merged.fastq"
+ #- "/media/archimede/Transcend/ArchiTalent/all_acobiom/br_debranching/20_SA.fastq"
+ - "./data/PAU29426_S13_sup_head3000.fastq"
+ - "-r"
+
+ # this option it's where you locate your fastafiles for reference genome
+ #- "/home/archimede/Documents/ecc_finder/eccfinder/ref_file_annotation/hg38.fa"
+ - "./data/S.meliloti2011complete.fasta"
+ #- "/media/archimede/Transcend/ArchiTalent/mapping_TE/P20_P2i_4dataset_part001.asm.bp.p_ctg.fa"
+ #- "/media/archimede/Transcend/ArchiTalent/mapping_TE/fagus_tedb_expop_lauren_281025_rename.fasta"
+ # this option it's to add your gff file GENE(location) plant or human
+ - "-gene"
+ - "/home/archimede/Documents/annotations/gencode.v38.annotation.bed"
+ # this option it's to locate your gff file  TE(location) human
+ - "-te"
+ - "/home/archimede/Documents/annotations/hg38_rmsk_TE.sorted.gtf"
+ # this option it's to locate your sorted gff file Alu(locaion) human
+ - "-alu"
+ - "/home/archimede/Documents/annotations/hg38_rmsk_TE.sorted_AluONLY.gtf"
+#----------------------Criteria Human or Plants----------------------------------------------
+ - "-org"
+ - "plant"
+#--------------------------config for Tandem Repeat Criteria---------------------------------
+ - "-n"
+#-----minimum copy number of tandem repeat in a long read (>=2) [2]--------------------------
+ - "2"
+#--------------------------------------
+ - "-e"
+#------------------maximum allowed divergence rate between two consecutive repeats-----------
+ - "0.25"
+#--------------------------------------------------------------------------------------------
+ - "-s"
+#---minimum period size of tandem repeat (>=2) [30]---------------------
+ - "30"
+#-----------------------end config tandem repeat------------------------------------------
+
+#---------------------------Config for region of peak probably circle---------------------
+# - "-yv"
+ - "-l"
+#---Minimum length of a peak--------------------------------------------------------------
+ - "200"
+#-----------------------------------------------------------------------------------------
+ - "-d"
+#---Maximum distance between signif. sites (def. 100)-------------------------------------
+ - "100"
+#-----------------------------------------------------------------------------------------
+ - "-p"
+#--------Maximum p-value (def. 0.01)------------------------------------------------------
+ - "0.05"
+
+#-------------------end of Gene enrichment------------------------------------------------
+
+#------------------------Config for filtering region--------------------------------------
+
+ - "--min-read"
+#----------------------filter locus by unique mapped read number-------------------------
+ - "1"
+#----------------------------------------------------------------------------------------
+
+ - "--min-bound"
+#------filter locus at regions by boundary coverage---------------------------------------
+ - "0.1"
+#-----------------------------------------------------------------------------------------
+ - "--min-cov"
+#---------------------minimum coverage of detected eccDNA loci----------------------------
+ - "1"
+#--------------------------end filtering locus regions------------------------------------
+ - "-o"
+
+# - "OUTPUTACOBIOM_PBI84373pre11_SA"
+ - "all_T1"
+#------------------------------END Configuration------------------------------------------
+
+
