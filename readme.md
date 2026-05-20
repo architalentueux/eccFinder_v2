@@ -46,7 +46,7 @@ Tool for eccdna analysis using ONT only
 
    - configuration with parameters you want in config.yaml
 
-### 5- execute the script 
+### 5- execute the program
 
    - python exe.py
 
