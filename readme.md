@@ -48,4 +48,25 @@ Tool for eccdna analysis using ONT only
 
 ### 5- execute the script 
 
-   - python exe.py 
+   - python exe.py
+
+## III- Configuration options To launch eccFinder_v2
+
+| Option        | Description                                      | Default                               |
+|----------------|--------------------------------------------------|---------------------------------------|
+| `map-ont`      | option long read analysis                        | `map-ont`                             |
+| `your fastq file` | input FASTQ file                              | `./data/pau29426_s13.fastq`           |
+| `-r`           | reference genome file                            | `./data/S.meliloti2011.fasta`         |
+| `-gene`        | option for GFF gene locations                    | `/annotations/*.annotation.bed`       |
+| `-te`          | option for GFF TE locations                      | `/annotations/hg*_rmsk_TE.sorted.gtf` |
+| `-org`         | organism type (`plant` or `human`)               | `plant`                               |
+| `-n`           | minimum copy number of tandem repeat             | `2`                                   |
+| `-e`           | max divergence rate between repeats              | `0.25`                                |
+| `-s`           | minimum period size of tandem repeat             | `30`                                  |
+| `-l`           | minimum length of a peak                         | `200`                                 |
+| `-d`           | maximum distance between significant sites       | `100`                                 |
+| `-p`           | maximum p-value                                  | `0.05`                                |
+| `--mean-read`  | filter locus by unique mapped read number        | `1`                                   |
+| `--mean-bound` | filter locus by boundary coverage                | `0.1`                                 |
+| `--mean-cov`   | minimum coverage of detected eccDNA loci         | `1`                                   |
+| `-o`           | output folder                                    | `eccfinder_output`                    |
