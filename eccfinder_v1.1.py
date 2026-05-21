@@ -53,6 +53,34 @@ def read_genome_alignments(file_prefix,align_path,min_qlen,min_aln, overwrite_fi
                 outfile.write('\t'.join(out_row))
                 outfile.write('\n')
 
+
+def nb_reads_fq(out,file_prefix, query_file, output_path):
+
+    if query_file.endswith(".gz"):
+        cmd = f"zcat {query_file} | wc -l"
+    else:
+        cmd = f"wc -l < {query_file}"
+
+    lines = int(subprocess.check_output(cmd, shell=True, text=True).strip())
+    reads = lines // 4
+
+    print(f"Nombre de reads : {reads}")
+    # fichier de sortie
+    output_file = os.path.join(output_path, f"{file_prefix}_nb_reads.txt")
+
+    with open(output_file, "w") as f:
+         f.write(f"{out},{reads}\n")
+
+    print(f"Nombre de reads : {reads}")
+    print(f"Résultat sauvegardé dans : {output_file}")
+
+    return output_file
+
+
+
+
+
+
 def run_Porechop(file_prefix, query_file, peak_path, overwrite_files):
     """Run Porechop to trim adapters from reads."""
     query_fileporechop = os.path.join(peak_path, f"{file_prefix}.fastq")
@@ -300,14 +328,14 @@ def runIntersect(file_prefix,output_path, gene_file,te_file,alu_file):
     gene_annot=os.path.expanduser(gene_file),
     te_annot=os.path.expanduser(te_file),
     alu_annot=os.path.expanduser(alu_file),
-    output_file=output_path +file_prefix +"final_output.tsv"
+    output_file=output_path +file_prefix +"_fusion_annotation.tsv"
 )
 
 def runIntersect_flexible(file_prefix,output_path, gene_file):
     intersect_ecc_flexible(
     ecc_file=output_path +file_prefix +"_fusion.csv",
     annot_file=os.path.expanduser(gene_file),
-    output_file=output_path +file_prefix +"final_output.tsv"
+    output_file=output_path +file_prefix +"_fusion_annotation.tsv"
 )
 
 
@@ -380,7 +408,8 @@ def main():
 
     idx_file = args.r
     #default="ecc.ont", help="add prefix to output [ecc.ont]"
-    file_prefix = args.x
+    file_prefix = args.o+"_"+args.x
+    out = args.o
     #help="query fastq/fasta file (uncompressed or bgzipped)
     query_file = os.path.abspath(args.query)
     # annotated file
@@ -432,6 +461,9 @@ def main():
     min_aln = args.a
     #############################################################################################################################################
     ################## Where you w  nt to launch alignments##################################################################
+    # number of reads before launch 
+    log("INFO", "number of reads calculation before launch")
+    nb_reads_fq(out,file_prefix, query_file, output_path) 
     # Align the query raw read to the reference.
     log("INFO", "Align the query raw read to the reference.")
     mm2_params = mm2_default
@@ -442,7 +474,7 @@ def main():
                               in_overwrite=overwrite_files)
     print(map_all)
     map_all.run_aligner()
-
+    
     # Filter raw read alignments based on query length and alignment length
     log("INFO", "Filtering read alignments based on query length and alignment length")
     read_genome_alignments(file_prefix, align_path, min_qlen, min_aln, overwrite_files)
