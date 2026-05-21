@@ -28,6 +28,7 @@ args:
  - "/home/archimede/Documents/annotations/hg38_rmsk_TE.sorted_AluONLY.gtf"
 #----------------------Criteria Human or Plants----------------------------------------------
  - "-org"
+ #- "human"
  - "plant"
 #--------------------------config for Tandem Repeat Criteria---------------------------------
  - "-n"

@@ -67,57 +67,6 @@ def run_Porechop(file_prefix, query_file, peak_path, overwrite_files):
 
     return query_fileporechop
 
-def sam_to_bam_and_index(align_path,file_prefix, output_bam=None, sort_bam=True):
-    """
-    Convertit un fichier SAM en BAM puis génère l'index BAI.
-
-    Parameters
-    ----------
-    input_sam : str
-        Chemin du fichier SAM d'entrée.
-    output_bam : str, optional
-        Chemin du BAM de sortie.
-        Si None, remplace .sam par .bam.
-    sort_bam : bool
-        Trie le BAM avant indexation (recommandé).
-
-    Returns
-    -------
-    tuple
-        (bam_path, bai_path)
-    """
-    input_sam = os.path.join(align_path, f"{file_prefix}.sam")
-    if output_bam is None:
-        output_bam = os.path.splitext(input_sam)[0] + ".bam"
-
-    # BAM temporaire si tri demandé
-    temp_bam = output_bam
-    if sort_bam:
-        temp_bam = output_bam.replace(".bam", ".unsorted.bam")
-
-    # Conversion SAM -> BAM
-    with pysam.AlignmentFile(input_sam, "r") as samfile:
-        with pysam.AlignmentFile(temp_bam, "wb", header=samfile.header) as bamfile:
-            for read in samfile:
-                bamfile.write(read)
-
-    # Tri du BAM
-    if sort_bam:
-        pysam.sort("-o", output_bam, temp_bam)
-        os.remove(temp_bam)
-
-    # Génération de l'index .bai
-    pysam.index(output_bam)
-
-    bai_path = output_bam + ".bai"
-
-    return output_bam, bai_path
-
-
-
-
-
-
 
 def run_TideHunter(file_prefix,query_fileporechop,peak_path, num_threads, max_divergence,min_period_size,num_copies,overwrite_files):
     #""" Spliting tandem repeats in one long read. """
@@ -454,14 +403,6 @@ def main():
     run_Porechop(file_prefix, query_file, peak_path, overwrite_files)
     log("INFO", "Trimmed adaptators")
     query_fileporechop = os.path.join(peak_path, f"{file_prefix}.fastq")
-    log("INFO", "align for igv")
-    mm_params = "-ax map-ont" + " -t " + str(num_threads)
-    map_sam =Minimap2SAMAligner(idx_file, [query_fileporechop], mapont_aligner_path, mm_params, align_path + file_prefix,
-                              in_overwrite=overwrite_files)
-    map_sam.run_aligner()
-
-    sam_to_bam_and_index(align_path,file_prefix, output_bam=None, sort_bam=True)
-    log("INFO", "end align for igv")
     run_TideHunter(file_prefix, query_fileporechop, peak_path, num_threads, max_divergence, min_period_size, num_copies,
                    overwrite_files)
     ######################################################################################
