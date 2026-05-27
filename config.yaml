@@ -27,7 +27,7 @@ args:
 
 #----------------------Criteria Human(human) or Plants(plant)----------------------------------------------
  - "-org"
- #- "human"
+# put the name of the organism human or plant
  - "plant"
 #--------------------------config for Tandem Repeat Criteria---------------------------------
  - "-n"
