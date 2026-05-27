@@ -57,8 +57,8 @@ Tool for eccdna analysis using ONT only
 | `map-ont`      | option long read analysis                        | `map-ont`                             |
 | `your fastq file` | input FASTQ file                              | `./data/M1.fastq`           |
 | `-r`           | reference genome file                            | `./data/hetre.fa`         |
-| `-gene`        | option for GFF gene locations                    | `./data/forest.gff`       |
-| `-te`          | option for GFF TE locations                      | `/annotations/hg38_TE.sorted.gtf` |
+| `-gene`        | option for GFF gene (plant or human) or plant TE locations | `./data/forest.gff`       |
+| `-te`          | option for GFF TE (human) locations                       | `/annotations/hg38_TE.sorted.gtf` |
 | `-org`         | organism type (`plant` or `human`)               | `plant`                               |
 | `-n`           | minimum copy number of tandem repeat             | `2`                                   |
 | `-e`           | max divergence rate between repeats              | `0.25`                                |
