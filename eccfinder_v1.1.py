@@ -328,14 +328,14 @@ def runIntersect(file_prefix,output_path, gene_file,te_file,alu_file):
     gene_annot=os.path.expanduser(gene_file),
     te_annot=os.path.expanduser(te_file),
     alu_annot=os.path.expanduser(alu_file),
-    output_file=output_path +file_prefix +"_fusion_annotation.tsv"
+    output_file=output_path +file_prefix +"_annotation.tsv"
 )
 
 def runIntersect_flexible(file_prefix,output_path, gene_file):
     intersect_ecc_flexible(
     ecc_file=output_path +file_prefix +"_fusion.csv",
     annot_file=os.path.expanduser(gene_file),
-    output_file=output_path +file_prefix +"_fusion_annotation.tsv"
+    output_file=output_path +file_prefix +"_annotation.tsv"
 )
 
 
@@ -397,7 +397,7 @@ def main():
     out_options = parser.add_argument_group("output options")
     out_options.add_argument("-o", metavar="PATH", type=str, default="eccFinder_output", help="output directory [./eccFinder_output]")
     out_options.add_argument("-w", action='store_true', default=False, help="overwrite intermediate files")
-    out_options.add_argument("-x", type=str, default="ecc.ont", help="add prefix to output [ecc.ont]")
+    out_options.add_argument("-x", type=str, default="ecc", help="add prefix to output [ecc.ont]")
     out_options.add_argument("--debug", action='store_true', default=False, help=argparse.SUPPRESS)
     map_options = parser.add_argument_group("map options")
     map_options.add_argument('-t', metavar="INT", type=int, default=get_default_thread(), help='number of CPU threads for mapping mode')
