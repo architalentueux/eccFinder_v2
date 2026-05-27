@@ -66,9 +66,9 @@ Tool for eccdna analysis using ONT only
 | `-l`           | minimum length of a peak                         | `200`                                 |
 | `-d`           | maximum distance between significant sites       | `100`                                 |
 | `-p`           | maximum p-value                                  | `0.05`                                |
-| `--mean-read`  | filter locus by unique mapped read number        | `1`                                   |
-| `--mean-bound` | filter locus by boundary coverage                | `0.1`                                 |
-| `--mean-cov`   | minimum coverage of detected eccDNA loci         | `1`                                   |
+| `--min-read`  | filter locus by unique mapped read number        | `1`                                   |
+| `--min-bound` | filter locus by boundary coverage                | `0.1`                                 |
+| `--min-cov`   | minimum coverage of detected eccDNA loci         | `1`                                   |
 | `-o`           | output folder                                    | `M1`                                  |
 
 ## IV- Tutorial
