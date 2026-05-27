@@ -56,8 +56,8 @@ Tool for eccdna analysis using ONT only
 |----------------|--------------------------------------------------|---------------------------------------|
 | `map-ont`      | option long read analysis                        | `map-ont`                             |
 | `your fastq file` | input FASTQ file                              | `./data/M1.fastq`           |
-| `-r`           | reference genome file                            | `./data/hetre.fasta`         |
-| `-gene`        | option for GFF gene locations                    | `/annotations/forest.gff`       |
+| `-r`           | reference genome file                            | `./data/hetre.fa`         |
+| `-gene`        | option for GFF gene locations                    | `./data/forest.gff`       |
 | `-te`          | option for GFF TE locations                      | `/annotations/hg38_TE.sorted.gtf` |
 | `-org`         | organism type (`plant` or `human`)               | `plant`                               |
 | `-n`           | minimum copy number of tandem repeat             | `2`                                   |
@@ -69,7 +69,7 @@ Tool for eccdna analysis using ONT only
 | `--mean-read`  | filter locus by unique mapped read number        | `1`                                   |
 | `--mean-bound` | filter locus by boundary coverage                | `0.1`                                 |
 | `--mean-cov`   | minimum coverage of detected eccDNA loci         | `1`                                   |
-| `-o`           | output folder                                    | `eccfinder_output`                    |
+| `-o`           | output folder                                    | `M1`                                  |
 
 ## IV- Tutorial
 
