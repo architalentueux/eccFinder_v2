@@ -328,14 +328,14 @@ def runIntersect(file_prefix,output_path, gene_file,te_file,alu_file):
     gene_annot=os.path.expanduser(gene_file),
     te_annot=os.path.expanduser(te_file),
     alu_annot=os.path.expanduser(alu_file),
-    output_file=output_path +file_prefix +"_annotation.tsv"
+    output_file=output_path +file_prefix +"_annotation.csv"
 )
 
 def runIntersect_flexible(file_prefix,output_path, gene_file):
     intersect_ecc_flexible(
     ecc_file=output_path +file_prefix +"_fusion.csv",
     annot_file=os.path.expanduser(gene_file),
-    output_file=output_path +file_prefix +"_annotation.tsv"
+    output_file=output_path +file_prefix +"_annotation.csv"
 )
 
 

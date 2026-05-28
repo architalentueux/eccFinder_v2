@@ -163,15 +163,15 @@ def intersect_ecc_flexible(
 
         output_rows.append([
             *row.iloc[:7],
-            row.iloc[7] if len(row) > 7 else "",
+            #row.iloc[7] if len(row) > 7 else "",
             values,
-            mito
+            #mito
         ])
 
     columns = [
         "chrom","chromStart","chromEnd","Nb_reads",
-        "Nb_hits","Peak_size","Pvalue","ID",
-        "Annotation","Mito"
+        "Nb_hits","Peak_size","Pvalue",
+        "Annotation"
     ]
 
     df_out = pd.DataFrame(output_rows, columns=columns)
