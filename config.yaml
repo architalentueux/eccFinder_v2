@@ -1,49 +1,49 @@
-#-----------------------------Configuration for eccfinder You can MODIFY these parameters as you want :)-----------------------------------------
+#----------------------Configuration for eccfinder You can MODIFY these parameters as you want :)---------
 args:
- # this option it's for launch ont longreads analysis
+ #  option for launch ont longreads analysis
  - "map-ont"
- # this option it's where you locate your fastqfiles
+ #  where you locate your fastqfiles
 
  -  "./data/data.fastq"
 
  - "-r"
 
- # this option it's where you locate your fastafiles for reference genome
+ # where you locate your reference genome
  - "./data/genome.fa"
 
- # this option it's to add your gff file GENE(location) plant or human
+ # option for including an annotation GFF (plant or human)
  - "-gff"
 
  - "./data/annotation.gff"
 
- # this option it's to locate your gff file  TE(location) human
+ # option for an additional hg38 GFF (human only)
  - "-te1"
 
- - "/home/archimede/Documents/annotations/hg38_te1.gff"
- # this option it's to locate your sorted gff file Alu(locaion) human
+ - "./data/hg38_te1.gff"
+ # option for an additional hg38 GFF (human only)
  - "-te2"
 
- - "/home/archimede/Documents/annotations/hg38_te2.gff"
+ - "./data/hg38_te2.gff"
 
-#----------------------Criteria Human(human) or Plants(plant)----------------------------------------------
+#----------------------Criteria Human(human) or Plants(plant)-----------------------------
  - "-org"
 # put the name of the organism human or plant
  - "plant"
-#--------------------------config for Tandem Repeat Criteria---------------------------------
+#----------------------config for Tandem Repeat Criteria----------------------------------
  - "-n"
-#-----minimum copy number of tandem repeat in a long read (>=2) [2]--------------------------
+#-----minimum copy number of tandem repeat in a long read (>=2) [2]-----------------------
  - "2"
-#--------------------------------------
+#-----------------------------------------------------------------------------------------
  - "-e"
-#------------------maximum allowed divergence rate between two consecutive repeats-----------
+#------------------maximum allowed divergence rate between two consecutive repeats--------
  - "0.25"
-#--------------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
  - "-s"
-#---minimum period size of tandem repeat (>=2) [30]---------------------
+#---minimum period size of tandem repeat (>=2) [30]---------------------------------------
  - "30"
-#-----------------------end config tandem repeat------------------------------------------
+#----------------------end config tandem repeat-------------------------------------------
 
-#---------------------------Config for region of peak probably circle---------------------
+#----------------------Config for region of peak probably circle--------------------------
 # - "-yv"
  - "-l"
 #---Minimum length of a peak--------------------------------------------------------------
@@ -59,12 +59,12 @@ args:
 
 #-------------------end of Gene enrichment------------------------------------------------
 
-#------------------------Config for filtering region--------------------------------------
+#------------------Config for filtering region--------------------------------------------
 
  - "--min-read"
-#----------------------filter locus by unique mapped read number-------------------------
+#------------------filter locus by unique mapped read number------------------------------
  - "1"
-#----------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------
 
  - "--min-bound"
 #------filter locus at regions by boundary coverage---------------------------------------
@@ -73,7 +73,7 @@ args:
  - "--min-cov"
 #---------------------minimum coverage of detected eccDNA loci----------------------------
  - "1"
-#--------------------------end filtering locus regions------------------------------------
+#-----------------end filtering locus regions---------------------------------------------
  - "-o"
 
 # - "OUTPUT VALUE"
