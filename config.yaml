@@ -4,26 +4,26 @@ args:
  - "map-ont"
  # this option it's where you locate your fastqfiles
 
- -  "./data/M1.fastq"
+ -  "./data/data.fastq"
 
  - "-r"
 
  # this option it's where you locate your fastafiles for reference genome
- - "./data/hetre.fa"
+ - "./data/genome.fa"
 
  # this option it's to add your gff file GENE(location) plant or human
- - "-gene"
+ - "-gff"
 
- - "./data/forest.gff"
+ - "./data/annotation.gff"
 
  # this option it's to locate your gff file  TE(location) human
- - "-te"
+ - "-te1"
 
- - "/home/archimede/Documents/annotations/hg38_TE.sorted.gtf"
+ - "/home/archimede/Documents/annotations/hg38_te1.gff"
  # this option it's to locate your sorted gff file Alu(locaion) human
- - "-alu"
+ - "-te2"
 
- - "/home/archimede/Documents/annotations/hg38_TE.sorted_AluONLY.gtf"
+ - "/home/archimede/Documents/annotations/hg38_te2.gff"
 
 #----------------------Criteria Human(human) or Plants(plant)----------------------------------------------
  - "-org"
@@ -77,7 +77,7 @@ args:
  - "-o"
 
 # - "OUTPUT VALUE"
- - "M1"
+ - "output"
 #------------------------------END Configuration------------------------------------------
 
 

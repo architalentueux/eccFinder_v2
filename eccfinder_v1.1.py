@@ -368,9 +368,9 @@ def main():
     parser.add_argument("idx", metavar="<reference.idx>", nargs='?', default="", type=str, help="index file of reference genome")
     parser.add_argument("-r", metavar="<query.fasta>", default="", type=str, help="reference genome fasta file (uncompressed or bgzipped)")
     #These 3 parameters below it's for gene, alu, te in gff file 
-    parser.add_argument("-gene", metavar="STR", default="", type=str, help="annotated file for gene human or plant")
-    parser.add_argument("-te", metavar="STR", default="", type=str, help="annotated file for te human or plant")
-    parser.add_argument("-alu", metavar="STR", default="", type=str, help="annotated file for alu human or plant")
+    parser.add_argument("-gff", metavar="STR", default="", type=str, help="annotated file for gene human or plant")
+    parser.add_argument("-te1", metavar="STR", default="", type=str, help="annotated file for te human or plant")
+    parser.add_argument("-te2", metavar="STR", default="", type=str, help="annotated file for alu human or plant")
     parser.add_argument("-org", metavar="STR", default="human", type=str, help="organism  human or plant")
     val_options =parser.add_argument_group("validation options")
     val_options.add_argument("-n", metavar="INT", type=int, default=2, help="minimum copy number of tandem repeat in a long read [2]")
@@ -413,9 +413,9 @@ def main():
     #help="query fastq/fasta file (uncompressed or bgzipped)
     query_file = os.path.abspath(args.query)
     # annotated file
-    gene_file = os.path.abspath(args.gene)
-    te_file = os.path.abspath(args.te)
-    alu_file = os.path.abspath(args.alu)
+    gene_file = os.path.abspath(args.gff)
+    te_file = os.path.abspath(args.te1)
+    alu_file = os.path.abspath(args.te2)
     #default=2, help="minimum copy number of tandem repeat in a long read [2]"
     num_copies = args.n
     # default=0.25, help="maximum allowed divergence rate between two consecutive repeats [0.25]"
